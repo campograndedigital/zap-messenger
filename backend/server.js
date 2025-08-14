@@ -1,13 +1,19 @@
-const app = require("express")();
-const server = require("http").createServer(app);
+require("dotenv").config();
+
+const express = require("express");
+const http = require("http");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+
+const app = express();
+const server = http.createServer(app);
 
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
-const port = process.env.PORT || 80;
+// Porta padrão 3000 no dev
+const port = process.env.PORT || 3000;
 
 const io = require("socket.io")(server, {
     cors: {
@@ -16,12 +22,14 @@ const io = require("socket.io")(server, {
     },
 });
 
-require("./socket/socketio")(io); //Iniciando o socket io
+// Iniciando o socket.io
+require("./socket/socketio")(io);
 
+// Rotas
 app.use("/routes", require("./routes")(io));
 
 server.listen(port, () => {
-    console.log(`listening on *:${port}`);
+    console.log(`Servidor rodando na porta ${port}`);
 });
 
 module.exports = app;
