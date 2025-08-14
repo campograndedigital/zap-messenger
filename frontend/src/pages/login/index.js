@@ -75,10 +75,11 @@ const Login = () => {
                     socket.emit("socket connected notification", { avatar }); // faz um emit pro serivdor
                 }
             } else {
-                if (changeStatusBorder !== "invisible") {
-                    socket.emit("socket connected notification", { avatar: person.avatar }); // faz um emit pro serivdor
+                if (changeStatusBorder !== "invisible" && person?.avatar) {
+                    socket.emit("socket connected notification", { avatar: person.avatar });
                 }
             }
+
 
             setMode("home"); //muda para home depois que clica.
         }, 3500);

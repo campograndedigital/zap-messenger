@@ -85,7 +85,7 @@ const Header = () => {
         <>
             <ReactTooltip multiline={true} />
             <Profile color={theme}>
-                <NavBar />
+                {/* <NavBar /> */}
                 <div id="profile">
                     <div id="left">
                         {person ? <Borderavatar avatar={person.avatar} size="64" status={person.status} minus="19" top="2px" left="2px"></Borderavatar> : <Borderavatar avatar="" size="64" status="online" minus="19" top="2px" left="2px"></Borderavatar>}
@@ -112,23 +112,23 @@ const Header = () => {
                                     </select>
                                 </small>
                             </div>
-                            <div>
+                            {/* <div>
                                 <img onClick={() => changeLanguage("br")} className="country-flag" src={brasil} alt="" />
                                 <img onClick={() => changeLanguage("en")} className="country-flag" src={usa} alt="" />
                                 <div style={{ marginLeft: 30, cursor: "pointer" }}>
                                     <ImExit onClick={logout} size={30} />
                                 </div>
-                            </div>
+                            </div> */}
                         </span>
 
                         <div id="div-subnick">
-                            <AeroButton datatip={language === "br" ? "Clique para inserir a musica<br /> que está ouvindo agora no spotify." : "Click to insert the song <br /> you are listening to now on spotify."} onCustomClick={() => menuSubnick()}>
+                            {/* <AeroButton datatip={language === "br" ? "Clique para inserir a musica<br /> que está ouvindo agora no spotify." : "Click to insert the song <br /> you are listening to now on spotify."} onCustomClick={() => menuSubnick()}>
                                 <FaSpotify size="20" color="white" />
                                 <p style={{ color: "white", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                     {language === "br" ? "Conectar" : "Connect"}
                                     <BsMusicNoteBeamed size={15} style={{ marginLeft: 5 }} />
                                 </p>
-                            </AeroButton>
+                            </AeroButton> */}
                             <AeroButton id="sub-nick">
                                 <form onSubmit={(e) => sendSubnick(e)}>
                                     <input placeholder={language === "br" ? "Insira seu subnick aqui" : "Insert your subnick here"} type="text" id="myInput-subnick" onBlur={(e) => sendSubnick(e)}></input>

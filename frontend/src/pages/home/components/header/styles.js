@@ -102,7 +102,7 @@ export const Profile = styled.div`
             width: 100%;
 
             .span-username {
-                height: 27px;
+                height: 0;
                 color: white;
                 display: flex;
                 align-items: center;
